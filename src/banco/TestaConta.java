@@ -73,23 +73,23 @@ public class TestaConta {
 					
 				case 2: 
 					int opSucessoTransferencia = 0;
-					System.out.println("Seu saldo em conta correte: " + cc1.getSaldo());
+					System.out.println("Saldo dísponivel para a operação: " + cc1.saldo);
 					System.out.println("Digite o valor que deseja transferir: ");
 					double transferir = scanner.nextDouble();
 					
 					do {
 						
-						if (cc1.getSaldo() < transferir) {
+						if (cc1.saldo < transferir) {
 							System.out.println("Operação cancelada, saldo insuficiente! ");
-							System.out.println("Saldo em conta: " + cc1.getSaldo());
+							System.out.println("Saldo em conta: " + cc1.saldo);
 							System.out.println("Digite o valor que deseja transferir: ");
 							transferir = scanner.nextDouble();
 						} else {
 							p1.transferirDinheiro(transferir);
 							cc1.sacarDinheiro(transferir);
 							System.out.println("Operação realizada com sucesso!");
-							System.out.println("Novo saldo em Conta Corrente: " + cc1.getSaldo());
-							System.out.println("Novo saldo em Conta Poupança: " + p1.getSaldo());
+							System.out.println("Novo saldo em Conta Corrente: " + cc1.saldo);
+							System.out.println("Novo saldo em Conta Poupança: " + p1.saldo);
 							opSucessoTransferencia = 1;
 						}
 					
@@ -113,7 +113,7 @@ public class TestaConta {
 							p1.retirarDinheiro(transferirCC);
 							cc1.depositarDinheiro(transferirCC);
 							System.out.println("Operação realizada com sucesso!");
-							System.out.println("Novo saldo em Conta Corrente: " + cc1.getSaldo());
+							System.out.println("Novo saldo em Conta Corrente: " + cc1.saldo);
 							System.out.println("Novo saldo em Conta Poupança: " + p1.getSaldo());
 							opSucessoTransferenciaCC = 1;
 						}
@@ -128,47 +128,47 @@ public class TestaConta {
 				
 				
 				} while (opMenuPoupanca != 0);
+				break;
 				
-				
-			case 5:
-				ContaSalario s1 = new ContaSalario(22, 1, "Mentorama",1200.00,5);
-				int opContaSalario = 1;
-				do {
-					System.out.println("---------------------------------");
-					System.out.println("          Conta Salário          ");
-					System.out.println("---------------------------------");
-					System.out.println("Operações: ");
-					System.out.println("1 - Consultar Saldo ");
-					System.out.println("2 - Sacar Dinheiro  ");
-					System.out.println("0 - Sair  ");
-					opContaSalario = scanner.nextInt();
-					
-					switch (opContaSalario) {
-					case 1:
-						System.out.println("Saldo em conta " + s1.getSaldo());
-						break;
-					
-					case 2:
-						int opSucessoTransferenciaCS = 0;
-						System.out.println("Digite o valor que deseja sacar: ");
-						double sacarCS = scanner.nextDouble();
+				case 5:
+					ContaSalario s1 = new ContaSalario(22, 1, "Mentorama",1200.00,5);
+					int opContaSalario = 1;
+					do {
+						System.out.println("---------------------------------");
+						System.out.println("          Conta Salário          ");
+						System.out.println("---------------------------------");
+						System.out.println("Operações: ");
+						System.out.println("1 - Consultar Saldo ");
+						System.out.println("2 - Sacar Dinheiro  ");
+						System.out.println("0 - Sair  ");
+						opContaSalario = scanner.nextInt();
 						
-						do {
+						switch (opContaSalario) {
+						case 1:
+							System.out.println("Saldo em conta " + s1.getSaldo());
+							break;
+						
+						case 2:
+							int opSucessoTransferenciaCS = 0;
+							System.out.println("Digite o valor que deseja sacar: ");
+							double sacarCS = scanner.nextDouble();
 							
-							if (s1.getSaldo() < sacarCS) {
-								System.out.println("Operação cancelada, saldo insuficiente! ");
-								System.out.println("Saldo em conta: " + s1.getSaldo());
-								System.out.println("Digite o valor que deseja transferir: ");
-								sacarCS = scanner.nextDouble();
-							} else {
-								s1.saques(sacarCS);
-								System.out.println("Saldo Atual: " + s1.getSaldo());
-								System.out.println("Quantidade de saques restantes: " + s1.quantidadeSaques);
-								opSucessoTransferenciaCS = 1;
-								break;
-							}
-						
-						}while (opSucessoTransferenciaCS != 1);
+							do {
+								
+								if (s1.getSaldo() < sacarCS) {
+									System.out.println("Operação cancelada, saldo insuficiente! ");
+									System.out.println("Saldo em conta: " + s1.getSaldo());
+									System.out.println("Digite o valor que deseja transferir: ");
+									sacarCS = scanner.nextDouble();
+								} else {
+									s1.saques(sacarCS);
+									System.out.println("Saldo Atual: " + s1.getSaldo());
+									System.out.println("Quantidade de saques restantes: " + s1.quantidadeSaques);
+									opSucessoTransferenciaCS = 1;
+									break;
+								}
+							
+							}while (opSucessoTransferenciaCS != 1);
 						break;
 						
 						

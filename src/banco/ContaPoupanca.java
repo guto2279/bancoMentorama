@@ -4,7 +4,7 @@ public class ContaPoupanca extends Conta{
 	
 	private int diaAniverssario;
 	private double taxaJuros;
-	
+	ContaCorrente cc1;
 	
 	
 	public ContaPoupanca(int numero, int agencia, String banco, double saldo, int diaAniverssario, double taxaJuros) {
@@ -27,8 +27,9 @@ public class ContaPoupanca extends Conta{
 	}
 	
 	public void transferirDinheiro(double transferir) {
-		this.saldo += transferir;
-	}
+			this.saldo += transferir;
+		
+		}
 	
 	public void retirarDinheiro(double retirar) {
 		this.saldo -= retirar;
