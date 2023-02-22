@@ -42,23 +42,8 @@ public class TestaConta {
 			case 3: 
 				System.out.println("Digite o valor que deseja sacar: ");
 				double sacar = scanner.nextInt();
-				int opSucesso = 0;
+				cc1.sacarDinheiro(sacar);
 				
-				do {
-				
-					if (cc1.getSaldo() < sacar) {
-						System.out.println("Operação cancelada, saldo insuficiente! ");
-						System.out.println("Saldo em conta: " + cc1.getSaldo());
-						System.out.println("Digite o valor que deseja sacar: ");
-						sacar = scanner.nextDouble();
-					} else {
-						cc1.sacarDinheiro(sacar);
-						System.out.println("Operação realizada com sucesso!");
-						System.out.println("Novo saldo em conta: " + cc1.getSaldo());
-						opSucesso = 1;
-					}
-				
-				}while (opSucesso != 1);
 				break;
 				
 			case 4:
